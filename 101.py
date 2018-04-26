@@ -1,4 +1,4 @@
-def isSymmetric(root):
+def isSymmetric(self, root):
     """
     :type root: TreeNode
     :rtype: bool
