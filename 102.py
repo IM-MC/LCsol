@@ -5,16 +5,15 @@
     """
     array = []
     queue = []
-    queue.append(root)
+    queue.insert(0,root)
     while len(queue) != 0:
         curr = []
         for _ in range(len(queue)):
             node = queue.pop()
             if node != None:
-                queue.append(node.left)
-                queue.append(node.right)
+                queue.insert(0,node.left)
+                queue.insert(0,node.right)
                 curr.append(node.val)
         if len(curr) > 0:
             array.append(curr)
     return array
-    
