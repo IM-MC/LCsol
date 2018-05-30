@@ -25,4 +25,4 @@ def minCostClimbingStairs(cost):
     ret = countSteps(cost, memo, 0)
     return min(memo[0],memo[1])
 
-print(minCostClimbingStairs([1,100,1,1,1,100,1,1,100,1]))
+print(minCostClimbingStairs([3,6,12,3,41,5,61,100,34,21,23,40,5,2,681,23]))
