@@ -19,6 +19,7 @@ def uniquePaths(m, n):
 
         #go down
         memo[index1+1][index2] = findPath(memo, index1+1, index2)
+        #go right
         memo[index1][index2+1] = findPath(memo, index1, index2+1)
 
         memo[index1][index2] = memo[index1+1][index2] + memo[index1][index2+1]
