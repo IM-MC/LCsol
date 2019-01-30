@@ -28,5 +28,6 @@ def findOrder(numCourses, prerequisites):
             return []
 
     return arr
+    
 
 print(findOrder(4, [[1,0],[2,0],[3,1],[3,2]]))
