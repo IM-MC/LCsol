@@ -4,7 +4,10 @@ def maxDepth(self, root):
     :rtype: int
     """
 
-    if not root:
-        return 0
-    else:
-        return max(maxDepth(root.left), maxDepth(root.right))
+    def height(root):
+        if not root:
+            return 0
+
+        return max(height(root.left)+1, height(root.right)+1)
+
+    return height(root)
