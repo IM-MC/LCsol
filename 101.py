@@ -3,11 +3,18 @@ def isSymmetric(self, root):
     :type root: TreeNode
     :rtype: bool
     """
-    return root == None or helper(root.left, root.right)
 
-def helper(left, right):
-    if left == None or right == None:
-        return left == right
-    if left.val != right.val:
-        return False
-    return helper(left.left, right.right) and (left.right, right.left)
+    def goThrough(left,right):
+        if not right and not left:
+            return True
+        if not left or not right:
+            return False
+
+        if left.val == right.val:
+            firstPair = goThrough(left.left, right.right)
+            secondPair = goThrough(left.right, right.left)
+            return firstPair and secondPair
+        else:
+            return False
+
+    return root == None or goThrough(root.left, root.right)
