@@ -19,12 +19,10 @@ def addBinary(a, b):
         sum[tempPos] += int(a[i]) + int(b[i])
         sum[tempPos-1] += sum[tempPos]/2
         sum[tempPos] %= 2
-        print(sum)
         pos -= 1
 
     start = 0
     while start < len(sum)-1 and sum[start] == 0:
-        print(start)
         start += 1
 
     return ''.join(map(str,sum[start:]))
