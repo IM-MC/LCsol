@@ -4,37 +4,22 @@ def numDecodings(s):
     :rtype: int
     """
 
-    arr = []
+    n = len(s)
 
-    for char in s:
-        arr.append(int(char))
-
-    if set(arr) == {0}:
+    if n == 0:
         return 0
 
-    if arr[len(arr)-1] == 0 and arr[len(arr)-2] > 2:
-        return 0
+    memo = [0]*(n+1)
+    memo[n] = 1
+    memo[n-1] = 1 if s[n-1] != '0' else 0
 
-    def findCombinations(arr):
-        print(arr)
-        if len(arr) == 0:
-            return 1
+    for i in range(n-2,-1,-1):
+        if s[i] == '0':
+            continue
 
-        if arr[0] == 0:
-            return 0
+        memo[i] = memo[i+1]+memo[i+2] if int(s[i:i+2]) <= 26 else memo[i+1]
 
-        if len(arr) == 1:
-            return 1
+    return memo[0]
 
-        if arr[1] == 0 and arr[0] <= 2:
-            return findCombinations(arr[2:])
-        elif arr[0] >= 3:
-            return findCombinations(arr[1:])
-        elif arr[1] >= 7 and arr[0] >= 2:
-            return findCombinations(arr[2:])
-        else:
-            return findCombinations(arr[1:]) + findCombinations(arr[2:])
 
-    return findCombinations(arr)
-
-print(numDecodings("27"))
+print(numDecodings("29483325"))
