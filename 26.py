@@ -11,7 +11,7 @@ def removeDuplicates(nums):
     index = 0
 
     for i in range(1, len(nums)):
-        if nums[i] != nums[index]:
+        if nums[index] != nums[i]:
             index += 1
             nums[index] = nums[i]
 
